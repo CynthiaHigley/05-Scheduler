@@ -1,22 +1,56 @@
-The 05Scheduler application is a simple web browser application 
+The 05-Scheduler application is a simple web browser application 
 the screen shot of the application is located in the asset/css/image/save-file-option.png location 
 
-the way this is works is first on the html file the structure for the page is set up so that you have divs and classes to be captured in the style.css and script.js files. 
-A grid is created with rows and columns, each row represents and hour in the work day from 9 am - 5 pm.
-The row is divided into 3 columns; the hour, the description field which has a textarea used for the 
-guest's entries, and then a save button. 
+The 05Scheduler application is a simple web browser application 
+the screen shot of the application is located in the asset/css/image/screenShot.png location 
 
-the css file grabs classes of row which the js then evaluates, if it is in the past, it is gray, in the present is red, and in the future green. this is done while the page is loaded or refreshed. 
+This is an application which allows a user to enter their daily work schedule between 9 am - 5 pm 
 
-in js an event handler waits for input from the user. two main types of input are a task description being written to a textarea field or the save button. Once that input it placed onto the form the code 
-will be able to handle the information 
-When the guest enters data into the field it will only last until the page is refreshed or closed
-however if the guest then presses the save button, that entry is put into local storage which is saved on their computer. 
+index.html 
+uses and references bootstrap, fontawesome, and fonts google apis 
+as well as references the style.css location 
 
-room for growth would be to add an array to handle the buttons and description fields so that in the future a 
-date can be associated with the description and time. Additional times would be wise because it would allow the user to have a life outside of work and many places have multiple or variable work shift start times. 
-this page is more of a module for a future scheduler which would allow for more hours and ability to pull up past dates. If it were to be used exclusively for a work schedule then it would be good to include 
-a time range the user can set up. Some workers have 1 hour lunches, others 1/2 hour. Some companies let you decide while you are at work. So allowing them to have a new color for the lunch and breaks will let 
-it show times when the workers is not available from the supervisor. 
-The other obvious feature I would add is the ability to delete a line....granted back spacing or deleting it and then saving the empty field is a form of deleting; however it would be more logical to the average user to have the ability to just remove the line from their schedule with the click of a button as well as 
-in this more simple form if we allowed the user to just delete the page's worth of data so they can have a fresh page to use the next day. 
+the header is created with jumbotron
+a container is used with rows dipicting the hour, description and a save button 
+the save button allows the user to save their task to their local memory 
+
+it closes referencing jquery and cloudflare 
+it references the java/script.js within the app structure 
+
+the style.css 
+creates the structure of the scheduler 
+if the time has not yet occurred the task line textarea is green, 
+if it is currently happening then the task line textarea is red, 
+and if it is in the past the task line textarea is gray. 
+
+the script.js 
+an array of workhours is set up to accomodate the hours 9 am - 5 pm 
+
+for each hour in the array the setRowColors is called 
+this determines the date, hours and compares them with the 
+schedule to determine the color of the textarea on the document 
+based upon the hours of schedule for the task it is compared with 
+the current time to deem the element as either past, present or future 
+which then style.css can update to the proper color on the scheduler. 
+
+each task is given a separate bottom for each hour so that the 
+user can enter task for that time in the textarea 
+buttonEvents() is called which will allow that data 
+to be then saved to the local storage on the user's machine
+
+buttonEvents(); is then called 
+this insites the saveSchedule using a parameter of btnDataAttr 
+where the local storage saving actually occurs. 
+
+an onLoad() function 
+is set up for when the user loads the form so that the values from local storage can be displayed in the 
+textarea 
+
+this function onLoad() is called 
+
+
+
+
+
+
+ 
